@@ -79,4 +79,14 @@ export const incrementIfOdd = (amount: number): AppThunk => (
   }
 };
 
+export const incrementIfEven = (amount: number): AppThunk => (
+  dispatch,
+  getState
+) => {
+  const currentValue = selectCount(getState());
+  if (currentValue % 2 === 0) {
+    dispatch(incrementByAmount(amount));
+  }
+};
+
 export default counterSlice.reducer;
