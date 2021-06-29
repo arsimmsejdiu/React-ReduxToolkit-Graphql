@@ -1,18 +1,21 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import styled from 'styled-components';
+import { HomePage } from './app/containers/HomePage';
+
+const AppContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Play <code>with the</code> Counter.
-        </p>
-        <Counter />
-      </header>
-    </div>
-  );
+    <AppContainer>
+      <HomePage />
+    </AppContainer>
+  )
 }
 
 export default App;
