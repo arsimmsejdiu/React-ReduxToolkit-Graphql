@@ -34,6 +34,10 @@ export interface GetAnimePage_Page_media {
    */
   description: string | null;
   /**
+   * A weighted average score of all the user's scores of the media
+   */
+  averageScore: number | null;
+  /**
    * The official titles of the media in various languages
    */
   title: GetAnimePage_Page_media_title | null;

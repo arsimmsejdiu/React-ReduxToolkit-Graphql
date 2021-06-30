@@ -17,11 +17,12 @@ const AnimeItemContainer = styled.div`
   height: 18em;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const AnimeCover = styled.div`
   width: auto;
-  height: 13em;
+  height: 15em;
   img {
     width: auto;
     height: 100%;
@@ -29,9 +30,9 @@ const AnimeCover = styled.div`
 `;
 
 const AnimeTitle = styled.h6`
-  font-size: 19px;
+  font-size: 15px;
   color: #000;
-  font-weight: 600;
+  font-weight: 500;
   margin-top: 8px;
 `;
 
@@ -60,6 +61,7 @@ export function HotAnime() {
               />
             </AnimeCover>
             <AnimeTitle>{anime?.title?.english}</AnimeTitle>
+            <h5>Average Score: {anime?.averageScore}</h5>
           </AnimeItemContainer>
         ))}
     </HotAnimeContainer>
