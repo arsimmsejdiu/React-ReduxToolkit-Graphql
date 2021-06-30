@@ -38,6 +38,10 @@ export interface GetAnimePage_Page_media {
    */
   averageScore: number | null;
   /**
+   * The amount of episodes the anime has when complete
+   */
+  episodes: number | null;
+  /**
    * The official titles of the media in various languages
    */
   title: GetAnimePage_Page_media_title | null;

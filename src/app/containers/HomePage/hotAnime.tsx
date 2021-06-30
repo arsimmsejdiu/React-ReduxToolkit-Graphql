@@ -10,19 +10,29 @@ const HotAnimeContainer = styled.div`
   height: 100%;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 `;
 
 const AnimeItemContainer = styled.div`
   width: 14em;
-  height: 18em;
+  height: 24em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 4px 10px 50px -6px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 4px 10px 50px -6px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 10px 50px -6px rgba(0, 0, 0, 0.75);
+    transform: scale(1.03);
+  }
 `;
 
 const AnimeCover = styled.div`
   width: auto;
   height: 15em;
+  margin: 2rem;
   img {
     width: auto;
     height: 100%;
@@ -33,7 +43,17 @@ const AnimeTitle = styled.h6`
   font-size: 15px;
   color: #000;
   font-weight: 500;
-  margin-top: 8px;
+  margin-top: -20px;
+  text-align: center;
+`;
+
+const Loading = styled.div`
+  font-size: 5em;
+`;
+
+const SubTitle = styled.h5`
+  margin-top: 5px;
+  text-align: center;
 `;
 
 const stateSelector = createSelector(makeSelectAnimePage, (animePage) => ({
@@ -46,7 +66,7 @@ export function HotAnime() {
   const isEmptyAnimePage =
     !animePage || !animePage.media || animePage.media.length === 0;
 
-  if (isEmptyAnimePage) return null;
+  if (isEmptyAnimePage) return <Loading>Loading ... ... </Loading>;
 
   return (
     <HotAnimeContainer>
@@ -60,8 +80,11 @@ export function HotAnime() {
                 alt={anime?.title?.english || ""}
               />
             </AnimeCover>
-            <AnimeTitle>{anime?.title?.english}</AnimeTitle>
-            <h5>Average Score: {anime?.averageScore}</h5>
+            <AnimeTitle>
+              {anime?.title?.english}
+              <SubTitle>Average Score: {anime?.averageScore}</SubTitle>
+              <SubTitle>Episodes: {anime?.episodes}</SubTitle>
+            </AnimeTitle>
           </AnimeItemContainer>
         ))}
     </HotAnimeContainer>

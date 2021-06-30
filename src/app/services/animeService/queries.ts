@@ -7,6 +7,7 @@ export const GET_ANIME_PAGE = gql`
         id
         description
         averageScore
+        episodes
         title {
           english
         }
