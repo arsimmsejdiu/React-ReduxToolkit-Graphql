@@ -12,7 +12,9 @@ class AnimeService {
       if (!response || !response.data)
         throw new Error("Can not get anime list !!! ");
 
-      return response.data;
+      console.log("Data: ", response.data.Page);
+
+      return response.data.Page;
     } catch (error) {
       throw error;
     }
